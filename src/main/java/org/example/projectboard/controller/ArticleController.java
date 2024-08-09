@@ -1,27 +1,46 @@
 package org.example.projectboard.controller;
 
+import lombok.RequiredArgsConstructor;
+import org.example.projectboard.domain.type.SearchType;
+import org.example.projectboard.dto.response.ArticleResponse;
+import org.example.projectboard.dto.response.ArticleWithCommentsResponse;
+import org.example.projectboard.service.ArticleService;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
+import org.springframework.data.web.PageableDefault;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
 
+@RequiredArgsConstructor
 @RequestMapping("/articles")
 @Controller
 public class ArticleController {
 
+    private final ArticleService articleService;
+
+
     @GetMapping
-    public String articles(ModelMap map) {
-        map.addAttribute("articles", List.of());
+    public String articles(
+            @RequestParam(required = false) SearchType searchType,
+            @RequestParam(required = false) String searchValue,
+            @PageableDefault(size = 10, sort= "createdAt", direction =Sort.Direction.DESC) Pageable pageable,
+            ModelMap map
+    ) {
+        map.addAttribute("articles", articleService.searchArticles(searchType, searchValue, pageable).map(ArticleResponse::from));
         return "articles/index";
     }
 
     @GetMapping("/{articleId}")
     public String article(@PathVariable("articleId") Long articleId, ModelMap map) {
-        map.addAttribute("article", "article"); //TODO: 구현할 때 여기를 실제 데이 넣어줘야 함
-        map.addAttribute("articleComments", List.of());
+        ArticleWithCommentsResponse article = ArticleWithCommentsResponse.from(articleService.getArticle(articleId));
+        map.addAttribute("article", article);
+        map.addAttribute("articleComments", List.of(article.articleCommentsResponse()));
         return "articles/detail";
     }
 }
