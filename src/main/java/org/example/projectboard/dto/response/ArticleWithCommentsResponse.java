@@ -18,7 +18,7 @@ public record ArticleWithCommentsResponse(
         String nickname,
         Set<String> hashtags, // 추가된 필드
         Set<ArticleCommentResponse> articleCommentsResponse
-) implements Serializable {
+) {
 
     public static ArticleWithCommentsResponse of(Long id, String title, String content, String hashtag, LocalDateTime createdAt, String email, String nickname, Set<String> hashtags, Set<ArticleCommentResponse> articleCommentResponses) {
         return new ArticleWithCommentsResponse(id, title, content, hashtag, createdAt, email, nickname, hashtags, articleCommentResponses);
