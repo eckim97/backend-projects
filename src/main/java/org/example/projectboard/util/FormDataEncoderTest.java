@@ -1,6 +1,7 @@
 package org.example.projectboard.util;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -43,7 +44,7 @@ class FormDataEncoderTest {
         String result = formDataEncoder.encode(obj);
 
         // Then
-        assertThat(result).isEqualTo(
+        Assertions.assertThat(result).isEqualTo(
                 "str=This%20'is'%20%22test%22%20string." +
                         "&listStr1=%5Bhello,my,friend%5D" +
                         "&listStr2=hello,my,friend" +
