@@ -104,7 +104,7 @@
 이 프로젝트는 웹 페이지용 엔드포인트와 API 엔드포인트를 제공합니다. 자세한 내용은 다음 이미지에서 확인할 수 있습니다:
 
 ### Endpoints 개요
-[Endpoints 개요 (PDF)](./document/endpoints.pdf)
+[Endpoints 개요 (PDF)](./document/end-points.pdf)
 
 이 이미지는 웹 페이지 엔드포인트와 API 엔드포인트의 전체 목록을 보여줍니다. 각 엔드포인트의 URI, HTTP 메소드, 그리고 간단한 기능 설명이 포함되어 있습니다.
 
