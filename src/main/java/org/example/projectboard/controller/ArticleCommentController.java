@@ -1,7 +1,6 @@
 package org.example.projectboard.controller;
 
 import lombok.RequiredArgsConstructor;
-import org.example.projectboard.dto.UserAccountDto;
 import org.example.projectboard.dto.request.ArticleCommentRequest;
 import org.example.projectboard.dto.security.BoardPrincipal;
 import org.example.projectboard.service.ArticleCommentService;
