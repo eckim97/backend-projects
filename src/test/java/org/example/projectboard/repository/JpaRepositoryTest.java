@@ -61,7 +61,7 @@ class JpaRepositoryTest {
     void givenTestData_whenInserting_thenWorksFine() {
         // Given
         long previousCount = articleRepository.count();
-        UserAccount userAccount = userAccountRepository.save(UserAccount.of("newUno", "pw", null, null, null));
+        UserAccount userAccount = userAccountRepository.save(UserAccount.of("newEunchan", "pw", null, null, null));
         Article article = Article.of(userAccount, "new article", "new content");
         article.addHashtags(Set.of(Hashtag.of("spring")));
 
@@ -135,7 +135,7 @@ class JpaRepositoryTest {
 
         // Then
         assertThat(articlePage.getContent()).hasSize(pageable.getPageSize());
-        assertThat(articlePage.getContent().get(0).getTitle()).isEqualTo("Fusce posuere felis sed lacus.");
+        assertThat(articlePage.getContent().get(0).getTitle()).isEqualTo("Aliquam quis turpis eget elit sodales scelerisque.");
         assertThat(articlePage.getContent().get(0).getHashtags())
                 .extracting("hashtagName", String.class)
                 .containsExactly("fuscia");
