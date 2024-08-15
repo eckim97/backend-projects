@@ -134,7 +134,7 @@ insert into article (user_id, title, content, created_by, modified_by, created_a
 
 
 -- 300개의 댓글
-insert into article_comment (article_id, user_id, parent_comment_id, content, created_by, modified_by, created_at, modified_at) values (105, 'eunchan', null, 'Integer ac leo. Pellentesque ultrices mattis odio. Donec vitae nisi.', 'Klemens', 'Zacherie', '2024-03-27 11:50:58', '2024-06-27 21:18:27');
+insert into article_comment (article_id, user_id, parent_comment_id, content, created_by, modified_by, created_at, modified_at) values (49, 'eunchan', null, 'Integer ac leo. Pellentesque ultrices mattis odio. Donec vitae nisi.', 'Klemens', 'Zacherie', '2024-03-27 11:50:58', '2024-06-27 21:18:27');
 insert into article_comment (article_id, user_id, parent_comment_id, content, created_by, modified_by, created_at, modified_at) values (89, 'eunchan', null, 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Proin risus. Praesent lectus.', 'Florenza', 'Curry', '2024-05-18 18:10:00', '2024-04-15 07:29:24');
 insert into article_comment (article_id, user_id, parent_comment_id, content, created_by, modified_by, created_at, modified_at) values (22, 'eunchan2', null, 'Maecenas leo odio, condimentum id, luctus nec, molestie sed, justo. Pellentesque viverra pede ac diam. Cras pellentesque volutpat dui.', 'Clive', 'Haskell', '2023-12-15 19:57:48', '2024-03-22 18:51:10');
 insert into article_comment (article_id, user_id, parent_comment_id, content, created_by, modified_by, created_at, modified_at) values (120, 'eunchan', null, 'Integer ac leo. Pellentesque ultrices mattis odio. Donec vitae nisi.', 'Davy', 'Cort', '2023-12-02 02:40:27', '2024-03-29 15:52:48');
