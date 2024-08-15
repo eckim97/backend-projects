@@ -1,6 +1,7 @@
 package org.example.projectboard.controller;
 
 import org.example.projectboard.config.SecurityConfig;
+import org.example.projectboard.config.TestSecurityConfig;
 import org.example.projectboard.repository.UserAccountRepository;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,7 +15,7 @@ import org.springframework.test.web.servlet.result.MockMvcResultHandlers;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
-@Import(SecurityConfig.class)
+@Import(TestSecurityConfig.class)
 @WebMvcTest(MainController.class)
 class MainControllerTest {
 
