@@ -6,8 +6,8 @@
 
 - **IDE**: IntelliJ IDEA Ultimate
 - **JDK**: Java 17
-- **빌드 도구**: Gradle 7.4.1
-- **프레임워크**: Spring Boot 2.7.0
+- **빌드 도구**: Gradle 8.8
+- **프레임워크**: Spring Boot 3.3.2
 
 ## 기술 세부 스택
 
@@ -32,7 +32,7 @@
 
 ### 그 외
 - **QueryDSL 5.0.0**: 타입 안전한 SQL 쿼리 생성을 위한 라이브러리
-- **Bootstrap 5.2.0-Beta1**: 프론트엔드 스타일링을 위한 CSS 프레임워크
+- **Bootstrap 5.3.3-Beta1**: 프론트엔드 스타일링을 위한 CSS 프레임워크
 - **Heroku**: 애플리케이션 배포 플랫폼
 
 ## 프로젝트 주요 기능
