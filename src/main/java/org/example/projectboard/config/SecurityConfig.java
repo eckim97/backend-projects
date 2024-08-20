@@ -33,6 +33,7 @@
             return http
                     .authorizeHttpRequests(auth -> auth
                             .requestMatchers(PathRequest.toStaticResources().atCommonLocations()).permitAll()
+                            .requestMatchers("/api/**").permitAll()
                             .requestMatchers(
                                     HttpMethod.GET,
                                     "/",
@@ -48,6 +49,7 @@
                                     .userService(oAuth2UserService)
                             )
                     )
+                    .csrf(csrf -> csrf.ignoringRequestMatchers("/api/**"))
                     .build();
         }
 
