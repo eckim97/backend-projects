@@ -6,6 +6,9 @@ insert into user_account (user_id, user_password, nickname, email, memo, created
 insert into user_account (user_id, user_password, nickname, email, memo, created_at, created_by, modified_at, modified_by) values
     ('eunchan2', '{noop}asdf1234', 'Eunchan2', 'eunchan2@mail.com', 'I am Eunchan2.', now(), 'eunchan2', now(), 'eunchan2');
 
+insert into user_account (user_id, user_password, nickname, email, memo, created_at, created_by, modified_at, modified_by) values
+    ('eunchan3', '{noop}asdf1234', 'Eunchan3', 'eunchan3@mail.com', 'I am Eunchan3.', now(), 'eunchan3', now(), 'eunchan3');
+
 -- 123개의 게시글
 insert into article (user_id, title, content, created_by, modified_by, created_at, modified_at) values ('eunchan', 'Proin interdum mauris non ligula pellentesque ultrices.', 'Integer ac leo. Pellentesque ultrices mattis odio. Donec vitae nisi.', 'Aindrea', 'Tudor', '2024-05-27 15:02:07', '2024-03-10 23:47:22');
 insert into article (user_id, title, content, created_by, modified_by, created_at, modified_at) values ('eunchan2', 'Nulla facilisi.', 'In congue. Etiam justo. Etiam pretium iaculis justo.', 'Catherin', 'Alikee', '2023-11-09 05:47:15', '2024-07-21 12:25:24');
