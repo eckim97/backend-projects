@@ -5,6 +5,7 @@ import com.querydsl.core.types.dsl.StringExpression;
 import org.example.projectboard.domain.Article;
 import org.example.projectboard.domain.QArticle;
 
+import org.example.projectboard.domain.projection.ArticleProjection;
 import org.example.projectboard.repository.querydsl.ArticleRepositoryCustom;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -15,7 +16,7 @@ import org.springframework.data.querydsl.binding.QuerydslBindings;
 import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 
 
-@RepositoryRestResource
+@RepositoryRestResource(excerptProjection = ArticleProjection.class)
 public interface ArticleRepository extends
         JpaRepository<Article, Long>,
         ArticleRepositoryCustom,
