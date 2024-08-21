@@ -29,10 +29,10 @@ class HashtagServiceTest {
 
     @Mock private HashtagRepository hashtagRepository;
 
-    @DisplayName("본문을 파싱하면, 해시태그 이름들을 중복 없이 반환한다.")
+    @DisplayName("본문을 파싱하면, 해시태그 이름들을 중복 없이 대소문자를 무시하고 반환한다.")
     @MethodSource
     @ParameterizedTest(name = "[{index}] \"{0}\" => {1}")
-    void givenContent_whenParsing_thenReturnUniqueHashtagNames(String input, Set<String> expected) {
+    void givenContent_whenParsing_thenReturnsUniqueHashtagNamesIgnoringCase(String input, Set<String> expected) {
         // given
 
 
@@ -44,7 +44,7 @@ class HashtagServiceTest {
         then(hashtagRepository).shouldHaveNoMoreInteractions();
     }
 
-    static Stream<Arguments> givenContent_whenParsing_thenReturnUniqueHashtagNames() {
+    static Stream<Arguments> givenContent_whenParsing_thenReturnsUniqueHashtagNamesIgnoringCase() {
         return Stream.of(
                 arguments(null, Set.of()),
                 arguments("", Set.of()),
@@ -56,13 +56,16 @@ class HashtagServiceTest {
                 arguments("java#", Set.of()),
                 arguments("ja#va", Set.of("va")),
                 arguments("#java", Set.of("java")),
+                arguments("#Java", Set.of("java")),
                 arguments("#java_spring", Set.of("java_spring")),
                 arguments("#java-spring", Set.of("java")),
                 arguments("#_java_spring", Set.of("_java_spring")),
                 arguments("#-java-spring", Set.of()),
                 arguments("#_java_spring__", Set.of("_java_spring__")),
                 arguments("#java#spring", Set.of("java", "spring")),
+                arguments("#java#spring", Set.of("java", "spring")),
                 arguments("#java #spring", Set.of("java", "spring")),
+                arguments("#java #Spring", Set.of("java", "spring")),
                 arguments("#java  #spring", Set.of("java", "spring")),
                 arguments("#java   #spring", Set.of("java", "spring")),
                 arguments("#java     #spring", Set.of("java", "spring")),
@@ -77,6 +80,7 @@ class HashtagServiceTest {
                 arguments("#java #spring  #부트", Set.of("java", "spring", "부트")),
                 arguments("   #java,? #spring  ...  #부트 ", Set.of("java", "spring", "부트")),
                 arguments("#java#java#spring#부트", Set.of("java", "spring", "부트")),
+                arguments("#java#JAVA#Java#sPRINg#부트", Set.of("java", "spring", "부트")),
                 arguments("#java#java#java#spring#부트", Set.of("java", "spring", "부트")),
                 arguments("#java#spring#java#부트#java", Set.of("java", "spring", "부트")),
                 arguments("#java#스프링 아주 긴 글~~~~~~~~~~~~~~~~~~~~~", Set.of("java", "스프링")),
