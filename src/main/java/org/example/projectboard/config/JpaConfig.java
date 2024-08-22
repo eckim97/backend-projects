@@ -16,7 +16,7 @@ import java.util.Optional;
 public class JpaConfig {
 
     @Bean
-    public AuditorAware<String> auditorProvider() {
+    public AuditorAware<String> auditorAware() {
         return () -> Optional.ofNullable(SecurityContextHolder.getContext())
                 .map(SecurityContext::getAuthentication) // 현재 인증된 사용자의 정보를 가져온다.
                 .filter(Authentication::isAuthenticated) // 인증된 사용자인지 확인한다.

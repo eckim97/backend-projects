@@ -19,7 +19,7 @@ public interface ArticleCommentRepository extends
         QuerydslPredicateExecutor<ArticleComment>,
         QuerydslBinderCustomizer<QArticleComment>{
 
-    List<ArticleComment> findByArticleId(Long articleId);
+    List<ArticleComment> findByArticle_Id(Long articleId);
 
     void deleteByIdAndUserAccount_UserId(Long articleCommentId, String userId);
 

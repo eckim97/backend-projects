@@ -56,4 +56,5 @@ public record ArticleDto(
             content
     );
   }
+
 }
